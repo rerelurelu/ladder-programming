@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Ladder">
+  <rect width="32" height="32" rx="7" fill="#1f5733"/>
+  <g fill="none" stroke-width="3" stroke-linecap="round">
+    <!-- 縦のレール -->
+    <path d="M12 6.5 V25.5" stroke="#eef4ee"/>
+    <path d="M20 6.5 V25.5" stroke="#eef4ee"/>
+    <!-- 横の段（中央は金の差し色） -->
+    <path d="M12 11 H20" stroke="#eef4ee"/>
+    <path d="M12 16 H20" stroke="#e2c668"/>
+    <path d="M12 21 H20" stroke="#eef4ee"/>
+  </g>
+</svg>
