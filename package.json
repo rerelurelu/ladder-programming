@@ -1,0 +1,30 @@
+{
+  "name": "ladder-programming",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt generate",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "postinstall": "nuxt prepare && lefthook install"
+  },
+  "dependencies": {
+    "nuxt": "^4.4.6",
+    "shadcn-nuxt": "2.7.3",
+    "vue": "^3.5.34",
+    "vue-router": "^5.0.7"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.16",
+    "@tailwindcss/vite": "^4.3.0",
+    "lefthook": "^2.1.9",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^5.9.0",
+    "vue-tsc": "^3.1.0"
+  }
+}
