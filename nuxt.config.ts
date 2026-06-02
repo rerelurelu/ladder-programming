@@ -5,6 +5,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["./app/assets/css/main.css"],
 
+  app: {
+    head: {
+      htmlAttrs: { lang: "ja" },
+    },
+  },
+
   // SSG は `nuxt generate`（= package.json の build スクリプト）で行う。
   // generate がルート `/` と pages/ を自動でクロール＆事前レンダリングするため、
   // nitro.prerender の追加設定は不要。リンクで辿れない孤立ルートを足したくなった

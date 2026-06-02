@@ -1,1 +1,118 @@
 @import "tailwindcss";
+
+/* === デザイントークン（単一ソース） ===
+   澄んだ白基調 × セージグリーン × 瑠璃の青 × 黄金の差し色 × ほのかなテックの質感。
+   アクセシビリティ優先: 白背景に乗せるテキスト色は十分なコントラスト(>=4.5:1)を満たすものだけ使う。
+   金(gold)はテキストには使わず装飾専用。本文には ink / ink-soft / brand-700 以上を使うこと。 */
+@theme {
+  --font-display:
+    system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+  --font-body:
+    system-ui, -apple-system, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+  --font-mono:
+    ui-monospace, "SFMono-Regular", Menlo, Consolas, "Noto Sans Mono", monospace;
+
+  /* セージグリーン（主役） */
+  --color-brand-50: #eef4ee;
+  --color-brand-100: #d9e8da;
+  --color-brand-200: #b9d4bb;
+  --color-brand-300: #8fbb93;
+  --color-brand-400: #5e9b66;
+  --color-brand-500: #3f7e4d;
+  --color-brand-600: #2f6b41;
+  --color-brand-700: #1f5733; /* 本文・ラベル可（白地で約8:1） */
+  --color-brand-800: #143b24;
+  --color-brand-900: #0e2a19;
+
+  /* 青 */
+  --color-azure-600: #1d6fb8;
+  --color-azure-700: #195e9c; /* リンク・ラベル可（白地で約5.6:1） */
+
+  /* 金（装飾専用、テキスト不可） */
+  --color-gold-100: #f6edcb;
+  --color-gold-200: #ecd998;
+  --color-gold-300: #e2c668;
+  --color-gold-600: #a9780b;
+  --color-gold-800: #6f5011; /* 金系で唯一テキスト可（淡い金地の上） */
+
+  /* インク（本文）と罫線 */
+  --color-ink: #16271c; /* 本文（約15:1） */
+  --color-ink-soft: #4a5a50; /* 補足文（約6.7:1） */
+  --color-line: #e2e8e1; /* ヘアライン罫線 */
+  --color-code-bg: #eff1f5; /* catppuccin-latte の背景。インラインコードと揃える */
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  color: var(--color-ink);
+  background-color: #f6f8f4;
+  /* 澄んだ白に淡い緑と青のにじみ（深みと空気感を出す） */
+  background-image:
+    radial-gradient(
+      55rem 55rem at 88% -8%,
+      rgba(94, 155, 102, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      48rem 48rem at -8% 108%,
+      rgba(29, 111, 184, 0.07),
+      transparent 55%
+    );
+  background-attachment: fixed;
+}
+
+::selection {
+  background: #cfe6d2;
+  color: #11331d;
+}
+
+/* ページ読み込み時のスタッガード・リビール（控えめに） */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  animation: fade-up 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+}
+
+/* Shiki（catppuccin-latte）コードブロックの枠。背景はテーマ色を活かす。 */
+.code-block .shiki {
+  margin: 0;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  font-family:
+    "JetBrains Mono", "Fira Code", ui-monospace, "SFMono-Regular", Menlo,
+    monospace;
+}
+
+.code-block .shiki code {
+  font-family: inherit;
+}
