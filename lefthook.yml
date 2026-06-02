@@ -1,0 +1,14 @@
+# コミット前: Biome でステージ済みファイルを自動修正し、修正結果を再ステージ
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      glob: "*.{js,ts,cjs,mjs,jsx,tsx,vue,json,jsonc,css}"
+      run: bunx biome check --write --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+      stage_fixed: true
+
+# プッシュ前: 型チェック（コミット毎に走らせると重いのでここで）
+pre-push:
+  commands:
+    typecheck:
+      run: bun run typecheck
