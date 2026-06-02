@@ -13,6 +13,16 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+        // ホーム画面追加用（Android: 名前・アイコン）。Service Worker は使わない軽量構成
+        { rel: "manifest", href: "/manifest.webmanifest" },
+      ],
+      meta: [
+        { name: "theme-color", content: "#f6f8f4" },
+        // iOS のホーム画面の表示名・挙動
+        { name: "apple-mobile-web-app-title", content: "Ladder" },
+        { name: "apple-mobile-web-app-capable", content: "yes" },
+        { name: "apple-mobile-web-app-status-bar-style", content: "default" },
+        { name: "mobile-web-app-capable", content: "yes" },
       ],
     },
   },

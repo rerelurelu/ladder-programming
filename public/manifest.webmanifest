@@ -1,0 +1,25 @@
+{
+  "name": "Ladder — プログラミングTips",
+  "short_name": "Ladder",
+  "description": "個人の学習成果・プログラミングTips置き場",
+  "lang": "ja",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f8f4",
+  "theme_color": "#f6f8f4",
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
